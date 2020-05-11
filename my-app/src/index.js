@@ -95,9 +95,17 @@ class Game extends React.Component {
         desc = <strong>{desc}</strong>;
       }
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
+        <>
+          <li key={move}>
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
+          <div className="game-board">
+            <Board
+              squares={history[move].squares}
+              onClick={i => this.handleClick(i)}
+            />
+          </div>
+        </>
       );
     });
 
